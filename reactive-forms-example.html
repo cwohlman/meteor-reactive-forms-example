@@ -8,7 +8,15 @@
 
 <template name="hello">
 	<div class="container">
-
+		{{#with item}}
+			<div class="alert alert-info">
+				{{fullname}} has been updated!
+			</div>
+		{{else}}
+			<div class="alert alert-danger">
+				Item does not exist!
+			</div>
+		{{/with}}
 		<h1>Hello Reactive Forms!</h1>
 		<p>Welcome to the reactive-froms example app. This little app demonstrates a few of the capabilities of the reactive-forms package for meteor.</p>
 		<p>An important feature of the reactive forms library is that it is ui-less. The reactive-forms package limits itself to providing a wrapper data context and certain useful helper functions. All the styles and html markup in this form are custom coded just for this form.</p>
@@ -38,13 +46,18 @@
 						{{/each}}
 					</div>
 				</div>
-				<button type="submit" class="btn btn-primary pull-right">Submit</button>
+				<div class="pull-right">
+					<button type="button" class="btn btn-warning btn-reset-names">Reset</button>
+					<button type="button" class="btn btn-warning btn-empty-names">Empty</button>
+				</div>
 				<legend>
 					Reactive Contents
 				</legend>
 				<p>
 					All changes made within the context of a form helper will be reactive (if you use the get and set helpers), not just validation. For example nickname: <b>{{get 'nickname'}}</b> and fullname: <b>{{get 'fullname'}}</b>
 				</p>
+				<button type="button" class="btn btn-danger btn-delete">Delete</button>
+				<button type="submit" class="btn btn-primary pull-right">Submit</button>
 			</form>
 		{{/form}}
 	</div>

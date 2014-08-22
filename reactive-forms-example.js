@@ -31,9 +31,33 @@ if (Meteor.isClient) {
         }
       };
     }
+    , bannerClass: function () {
+      return Session.get('updated') ? '' : 'hidden';
+    }
   });
 
   Template.hello.events({
+    'click .btn-reset-names': function () {
+      this.set('nickname', null);
+      this.set('fullname', null);
+    }
+    , 'click .btn-empty-names': function () {
+      this.set('nickname', '');
+      this.set('fullname', '');
+    }
+    , 'click .btn-delete': function () {
+      if (this.item) Items.remove(this.item._id);
+    }
+  });
+
+  Meteor.autorun(function () {
+    var x = Items.findOne();
+    if (x) {
+      $('.alert').show();
+    }
+    Meteor.setTimeout(function () {
+      $('.alert').fadeOut();
+    }, 1500);
   });
 }
 
