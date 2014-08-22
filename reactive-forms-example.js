@@ -48,6 +48,29 @@ if (Meteor.isClient) {
     , 'click .btn-delete': function () {
       if (this.item) Items.remove(this.item._id);
     }
+    , 'click .btn-add-friend': function (e, tmpl) {
+      var friends = this.get('friends');
+      friends = friends || [];
+      friends.push({
+        _id: Random.id()
+        , name: this.get('newFriend')
+      });
+      this.set('friends', friends);
+      this.set('newFriend', '');
+      tmpl.find('[name="newFriend"]').focus();
+    }
+    , 'keydown [name="newFriend"]': function (e, tmpl) {
+      // enter key
+      if (e.which == 13) {
+        e.preventDefault();
+        e.currentTarget.blur();
+        // e.stopPropagation();
+        // allow blur event to be handled by forms.onChange
+        Meteor.setTimeout(function () {
+          tmpl.find('.btn-add-friend').click();
+        }, 0);
+      }
+    }
   });
 
   Meteor.autorun(function () {

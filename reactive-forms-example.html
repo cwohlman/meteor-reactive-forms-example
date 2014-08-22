@@ -56,6 +56,28 @@
 				<p>
 					All changes made within the context of a form helper will be reactive (if you use the get and set helpers), not just validation. For example nickname: <b>{{get 'nickname'}}</b> and fullname: <b>{{get 'fullname'}}</b>
 				</p>
+				<legend>
+					Child Objects
+				</legend>
+				<p>
+					Reactive forms has another trick - child object state and validation tracking. You can use the forms library to modify child objects just as easily as you would to modify the parent object.
+				</p>
+				<div class="form-group">
+					<label class="control-label col-sm-2">Friends</label>
+					<div class="col-sm-10">
+						{{#each get 'item' 'friends'}}
+							{{#with reactiveContext . ..}}
+								<input type="text" name="name" value="{{get 'name'}}" class="form-control">
+							{{/with}}
+						{{/each}}
+						<div class="form-inline">
+							<input type="text" name="newFriend" value="{{get 'newFriend'}}" class="form-control">
+							<button type="button" class="btn btn-success btn-add-friend">
+								Add
+							</button>
+						</div>
+					</div>
+				</div>
 				<button type="button" class="btn btn-danger btn-delete">Delete</button>
 				<button type="submit" class="btn btn-primary pull-right">Submit</button>
 			</form>
