@@ -12,6 +12,16 @@ if (Meteor.isClient) {
       , fullname: {
         required: true
       }
+      , friends: {
+        child: {
+          name: {
+            required: true
+          }
+          , age: {
+            number: true
+          }
+        }
+      }
     }
     , message: function () {
       Template.hello.instance = this;
