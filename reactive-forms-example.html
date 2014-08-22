@@ -39,6 +39,12 @@
 					</div>
 				</div>
 				<button type="submit" class="btn btn-primary pull-right">Submit</button>
+				<legend>
+					Reactive Contents
+				</legend>
+				<p>
+					All changes made within the context of a form helper will be reactive (if you use the get and set helpers), not just validation. For example nickname: <b>{{get 'nickname'}}</b> and fullname: <b>{{get 'fullname'}}</b>
+				</p>
 			</form>
 		{{/form}}
 	</div>
