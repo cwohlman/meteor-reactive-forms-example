@@ -1,0 +1,45 @@
+<head>
+  <title>reactive-forms-example</title>
+</head>
+
+<body>
+  {{> hello}}
+</body>
+
+<template name="hello">
+	<div class="container">
+
+		<h1>Hello Reactive Forms!</h1>
+		<p>Welcome to the reactive-froms example app. This little app demonstrates a few of the capabilities of the reactive-forms package for meteor.</p>
+		<p>An important feature of the reactive forms library is that it is ui-less. The reactive-forms package limits itself to providing a wrapper data context and certain useful helper functions. All the styles and html markup in this form are custom coded just for this form.</p>
+		{{#form item=item schema=schema onSubmit=onSubmit}}
+			<form class="form-horizontal">
+				<legend>
+					Basic Forms
+				</legend>
+				<p>At it's core the package is intended to support a very simple use case, reactive form validation done meteor style. No jquery involved.</p>
+				<p>{{message}}</p>
+				<div class="form-group {{errorClass 'nickname'}}">
+					<label class="control-label col-sm-2" for="nickname">Nickname</label>
+					<div class="col-sm-10">
+						<input type="text" name="nickname" value="{{get 'nickname'}}" class="form-control" placeholder="5 Characters or less.">
+						<p class="help-block">Please enter a short nickname of 5 characters or less.</p>
+					</div>
+				</div>
+				<div class="form-group {{errorClass 'fullname'}}">
+					<label class="control-label col-sm-2" for="fullname">Full Name</label>
+					<div class="col-sm-10">
+						<input type="text" name="fullname" value="{{get 'fullname'}}" class="form-control" placeholder="Don't put your real name in a forms example :)">
+						<p class="help-block">
+							A bootstrap help-block is generated for each validation error related to this field. Notice that the validation waits to take place until the user modifies the field or submits the form.
+						</p>
+						{{#each get "errors" "fullname"}}
+							<p class="help-block">{{this}}</p>
+						{{/each}}
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary pull-right">Submit</button>
+			</form>
+		{{/form}}
+	</div>
+</template>
