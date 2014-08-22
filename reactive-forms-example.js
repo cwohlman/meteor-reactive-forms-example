@@ -22,7 +22,13 @@ if (Meteor.isClient) {
     }
     , onSubmit: function () {
       return function (values, original) {
-        alert(JSON.stringify(values));
+        if (original) {
+          Items.update(original._id, {
+            $set: values
+          });
+        } else {
+          Items.insert(values);
+        }
       };
     }
   });
