@@ -20,7 +20,7 @@
 		<h1>Hello Reactive Forms!</h1>
 		<p>Welcome to the reactive-froms example app. This little app demonstrates a few of the capabilities of the reactive-forms package for meteor.</p>
 		<p>An important feature of the reactive forms library is that it is ui-less. The reactive-forms package limits itself to providing a wrapper data context and certain useful helper functions. All the styles and html markup in this form are custom coded just for this form.</p>
-		{{#form item=item schema=schema onSubmit=onSubmit}}
+		{{#reactiveForm item=item schema=schema onSubmit=onSubmit}}
 			<form class="form-horizontal">
 				<legend>
 					Basic Forms
@@ -108,6 +108,6 @@
 				<button type="button" class="btn btn-danger btn-delete">Delete</button>
 				<button type="submit" class="btn btn-primary pull-right">Submit</button>
 			</form>
-		{{/form}}
+		{{/reactiveForm}}
 	</div>
 </template>
