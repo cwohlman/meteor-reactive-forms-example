@@ -44,6 +44,27 @@ if (Meteor.isClient) {
     , bannerClass: function () {
       return Session.get('updated') ? '' : 'hidden';
     }
+    , autoFormSchema: {
+      name: {
+        type: 'text'
+        , label: 'Name'
+        , required: true
+      }
+      , age: {
+        type: 'number'
+        , label: 'Age'
+        , required: true
+        , number: {
+          larger: 18
+        }
+      }
+      , nickname: {
+        label: 'Nickname'
+      }
+      , fullname: {
+        label: 'Fullname'
+      }
+    }
   });
 
   Template.hello.events({

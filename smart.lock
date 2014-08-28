@@ -8,8 +8,8 @@
     "packages": {
       "reactive-forms": {
         "git": "https://github.com/cwohlman/meteor-reactive-forms.git",
-        "tag": "v0.0.1",
-        "commit": "c325481dc60167ffb4f249facf16b7cb703bc86f"
+        "tag": "v0.0.2",
+        "commit": "03a168910a216ba629ce88f75757d325c8ba10fa"
       },
       "bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",

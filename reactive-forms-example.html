@@ -105,9 +105,16 @@
 						</button>
 					</div>
 				</div>
-				<button type="button" class="btn btn-danger btn-delete">Delete</button>
-				<button type="submit" class="btn btn-primary pull-right">Submit</button>
+				<div class="form-group">
+					<div class="col-sm-12">
+						<button type="button" class="btn btn-danger btn-delete">Delete</button>
+						<button type="submit" class="btn btn-primary pull-right">Submit</button>
+					</div>
+				</div>
 			</form>
 		{{/reactiveForm}}
+
+		{{> form item=item schema=autoFormSchema onSubmit=onSubmit}}
+
 	</div>
 </template>
