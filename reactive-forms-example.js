@@ -63,6 +63,28 @@ if (Meteor.isClient) {
       }
       , fullname: {
         label: 'Fullname'
+        , helpText: "Your name as it appears on your drivers license"
+      }
+      , favorite: {
+        label: 'Favorite Color'
+        , type: 'options'
+        , options: [
+          'Red'
+          , 'Green'
+          , 'Blue'
+          , 'Orange'
+          , 'Black'
+          , 'Yellow'
+        ]
+      }
+      , picture: {
+        label: 'Picture'
+        , type: 'file'
+      }
+      , showPicture: {
+        label: 'Show Picture'
+        , type: 'checkbox'
+        , checkboxLabel: 'Show your picture on your profile page?'
       }
     }
   });
