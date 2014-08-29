@@ -2,19 +2,46 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
-      "reactive-forms": {},
-      "bootstrap-3": {}
+      "useful": {
+        "git": "git@github.com:usefulio/meteor-useful-package.git",
+        "branch": "master"
+      }
     },
     "packages": {
-      "reactive-forms": {
-        "git": "https://github.com/cwohlman/meteor-reactive-forms.git",
-        "tag": "v0.0.2",
-        "commit": "03a168910a216ba629ce88f75757d325c8ba10fa"
+      "useful": {
+        "git": "git@github.com:usefulio/meteor-useful-package.git",
+        "branch": "master",
+        "commit": "e0b6b7655c55aff0680ebb44998f13520631483d"
       },
-      "bootstrap-3": {
-        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
-        "tag": "v3.2.0-1",
-        "commit": "17a63902fc6cf1096c5289d963c66cf28b474727"
+      "collection-hooks": {
+        "git": "https://github.com/matb33/meteor-collection-hooks.git",
+        "tag": "v0.6.3",
+        "commit": "70f2598bf991cb36effd72aea2555cba96f88355"
+      },
+      "iron-router": {
+        "git": "git://github.com/EventedMind/iron-router.git",
+        "tag": "v0.7.1",
+        "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
+      },
+      "iron-router-helpers": {
+        "git": "git://github.com/EventedMind/iron-router-helpers.git",
+        "tag": "master",
+        "commit": "750b0400fc877dc75bf92c88fe0edf4a0566a04d"
+      },
+      "moment-with-langs": {
+        "git": "https://github.com/jeeeyul/meteor-moment-with-langs.git",
+        "tag": "v2.5.1",
+        "commit": "75f725898f6d5c3dddc54f1f619fe3b184f596a2"
+      },
+      "font-awesome": {
+        "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
+        "tag": "v4.1.0",
+        "commit": "ce6b1e92715d1938babc5d69c655c17e387f5926"
+      },
+      "blaze-layout": {
+        "git": "https://github.com/EventedMind/blaze-layout.git",
+        "tag": "v0.2.4",
+        "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
       }
     }
   }

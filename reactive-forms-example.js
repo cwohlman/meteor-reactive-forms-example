@@ -67,7 +67,19 @@ if (Meteor.isClient) {
       }
       , favorite: {
         label: 'Favorite Color'
-        , type: 'options'
+        , type: 'selectize'
+        , autocomplete: [
+          'Red'
+          , 'Green'
+          , 'Blue'
+          , 'Orange'
+          , 'Black'
+          , 'Yellow'
+        ]
+      }
+      , paint: {
+        label: 'Paint Color'
+        , type: 'selectize'
         , options: [
           'Red'
           , 'Green'

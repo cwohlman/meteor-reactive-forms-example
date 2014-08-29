@@ -1,6 +1,9 @@
 {
-  "packages": {
-    "reactive-forms": {},
-    "bootstrap-3": {}
-  }
+	"packages": {
+	"useful": {
+      "git": "git@github.com:usefulio/meteor-useful-package.git",
+      "branch": "master"
+    }		
+	}
+
 }
