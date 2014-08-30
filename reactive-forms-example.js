@@ -45,7 +45,14 @@ if (Meteor.isClient) {
       return Session.get('updated') ? '' : 'hidden';
     }
     , autoFormSchema: {
-      name: {
+      title: {
+        type: 'legend'
+        , legend: 'Schema specified in javascript'
+        , legendSubtext: 'This legend was specified in the schema'
+        , helpText: 'Hint - for now you need to specify a fieldWrapperTemplate of "formsFieldWrapperLegend" to prevent the legend being wrapped like any other field.'
+        , fieldWrapperTemplate: 'formsFieldWrapperLegend'
+      }
+      , name: {
         type: 'text'
         , label: 'Name'
         , required: true
@@ -133,6 +140,29 @@ if (Meteor.isClient) {
         // allow blur event to be handled by forms.onChange
         Meteor.setTimeout(function () {
           tmpl.find('.btn-add-friend').click();
+        }, 0);
+      }
+    }
+    , 'click .btn-add-new-friend': function (e, tmpl) {
+      var friends = this.get('friends');
+      friends = friends || [];
+      friends.push({
+        _id: Random.id()
+        , name: this.get('otherNewFriend')
+      });
+      this.set('friends', friends);
+      this.set('otherNewFriend', '');
+      tmpl.find('[name="otherNewFriend"]').focus();
+    }
+    , 'keydown [name="otherNewFriend"]': function (e, tmpl) {
+      // enter key
+      if (e.which == 13) {
+        e.preventDefault();
+        e.currentTarget.blur();
+        // e.stopPropagation();
+        // allow blur event to be handled by forms.onChange
+        Meteor.setTimeout(function () {
+          tmpl.find('.btn-add-new-friend').click();
         }, 0);
       }
     }
